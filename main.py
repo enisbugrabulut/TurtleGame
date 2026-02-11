@@ -8,7 +8,7 @@ WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 window.title("Catch the Turtle")
 
-FONT = ('Arial', 30, 'normal')
+FONT = ('Arial', 15, 'normal')
 
 turtle1 = turtle.Turtle(shape="turtle")
 turtle1.shapesize(3)
@@ -41,8 +41,10 @@ def countdowner(game_time):
         spawn_turtle()
         window.ontimer(lambda: countdowner(game_time - 1), 1000)
     else:
-        timer_turtle.write(f"Time left: {game_time}", align='center', font=FONT)
+        timer_turtle.color("navy blue")
+        timer_turtle.write(f"Game Over !", align='center', font=FONT)
         score_turtle.write(f"Your score: {score}", align='center', font=FONT)
+        final_turtle.color("red")
         final_turtle.write(f"Congratulations! Your score: {score}", align='center', font=FONT)
         window.exitonclick()
 
@@ -51,5 +53,5 @@ def increase_score(x,y):
     score += 1
 
 if __name__ == "__main__":
-    countdowner(5)
+    countdowner(20)
     window.mainloop()
